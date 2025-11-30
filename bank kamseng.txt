@@ -1,0 +1,1092 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <title>Bank Caption Ko Kamseng</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      font-family: Arial, sans-serif;
+      background: #020617;
+      color: #e5e7eb;
+      margin: 0;
+      padding: 20px;
+    }
+    .wrapper {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 6px;
+    }
+    .subtitle {
+      text-align: center;
+      font-size: 13px;
+      color: #9ca3af;
+      margin-bottom: 18px;
+    }
+    .top-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 14px;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .search-box {
+      flex: 1;
+      min-width: 220px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: #020617;
+      border-radius: 999px;
+      border: 1px solid #374151;
+      padding: 6px 10px;
+    }
+    .search-box input {
+      flex: 1;
+      border: none;
+      outline: none;
+      background: transparent;
+      color: #e5e7eb;
+      font-size: 13px;
+    }
+    .search-icon {
+      font-size: 14px;
+      opacity: 0.7;
+    }
+    .info-chip {
+      font-size: 11px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      border: 1px solid #4b5563;
+      color: #9ca3af;
+      white-space: nowrap;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 10px;
+    }
+    .card {
+      position: relative;
+      background: #0b1120;
+      border-radius: 12px;
+      padding: 10px;
+      border: 1px solid #111827;
+      cursor: pointer;
+      transition: transform 0.08s ease, box-shadow 0.08s ease, border-color 0.08s ease;
+    }
+    .card:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 8px 14px rgba(15, 23, 42, 0.7);
+      border-color: #1d4ed8;
+    }
+    .card.copied {
+      border-color: #22c55e;
+    }
+    .product-name {
+      font-size: 12px;
+      font-weight: bold;
+      color: #93c5fd;
+      margin-bottom: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .product-id {
+      font-size: 11px;
+      color: #fbbf24;
+      margin-bottom: 2px;
+    }
+    .tags {
+      font-size: 11px;
+      color: #9ca3af;
+      margin-bottom: 6px;
+    }
+    .caption-text {
+      font-size: 13px;
+      line-height: 1.4;
+      white-space: pre-wrap;
+    }
+    .pill {
+      position: absolute;
+      right: 8px;
+      top: 8px;
+      font-size: 10px;
+      padding: 2px 8px;
+      border-radius: 999px;
+      border: 1px solid #334155;
+      color: #9ca3af;
+      background: rgba(15, 23, 42, 0.8);
+    }
+    .status-bar {
+      margin-top: 8px;
+      font-size: 11px;
+      color: #9ca3af;
+      text-align: right;
+    }
+    .highlight {
+      color: #22c55e;
+      font-weight: bold;
+    }
+    @media (max-width: 600px) {
+      body { padding: 12px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <h1>Bank Caption Ko Kamseng</h1>
+    <div class="subtitle">
+      Ketik <strong>nomor / nama produk / kata kunci</strong> → klik kartu → caption langsung <span class="highlight">COPY</span>.
+    </div>
+
+    <div class="top-bar">
+      <div class="search-box">
+        <span class="search-icon">🔍</span>
+        <input
+          id="searchInput"
+          type="text"
+          placeholder="Cari: 1, DOHERO, jok, helm, stepper, pisau, dll..."
+        />
+      </div>
+      <div class="info-chip">
+        Klik kartu = copy caption otomatis ✨
+      </div>
+    </div>
+
+    <div id="grid" class="grid"></div>
+    <div id="status" class="status-bar"></div>
+  </div>
+
+  <script>
+    // ================== DATA CAPTION ==================
+    const CAPTIONS = [
+      {
+        id: "1",
+        product: "DOHERO – Pembersih Interior Mobil",
+        tags: "dohero interior mobil pembersih interior mobil 100ml 250ml 400ml kokamseng",
+        text: `👉Komen "DOHERO"  nanti Link Produknya aku kirim ke DM atau Cek Link di Bio no.1
+
+DOHERO – Pembersih Interior Mobil | Rating 4,8 ⭐
+
+Mobil bersih bukan soal gaya, tapi soal kenyamanan & gengsi diri sendiri.
+Buat kamu usia 25–35 yang hidupnya sibuk antara kerja, keluarga, dan mobilitas tinggi, interior kotor itu ganggu mood.
+
+Di sinilah DoHero Interior Cleaner jadi senjata rahasia kamu.
+
+✅ Efektif angkat noda di interior
+✅ Aman untuk kulit, karet, plastik, fabric & vinyl
+✅ Bisa dipakai di dashboard, jok, doortrim, plafon
+✅ Praktis, semprot – gosok – lap – langsung kinclong
+✅ Bonus lap microfiber langsung di dalam paket
+✅ Rating 4,8 ⭐ dari ribuan pembeli
+
+Tersedia varian: 100ml | 250ml | 400ml
+Tinggal pilih sesuai kebutuhan mobil kamu.
+
+Mobil bersih bukan cuma enak dilihat, tapi bikin kamu lebih pede tiap kali nyetir.
+Sekarang giliran interior gak bau Tokek lagi 🔥
+#pembersihinteriormobil #kokamseng`
+      },
+      {
+        id: "3",
+        product: "Sarung Jok Anti Cakar Kucing",
+        tags: "sarung jok anti cakar kucing jok motor amplas pasir emboss prima rating 4.9",
+        text: `👉Komen "ANTI CAKAR" nanti Link Produknya aku kirim ke DM atau Cek Link di Bio no.03 bisa juga dengan klik keranjang yang ada di video ya kak 😍
+
+Sarung Jok Anti Cakar Kucing – Rating 4,9 ⭐
+
+Punya kucing lucu tapi hobi nyakarin jok motor?
+Cute di rumah, sadis di parkiran 😭
+
+Sarung jok ANTI CAKAR KUCING ini pakai bahan amplas pasir + emboss PRIMA,
+tahan cakar, gak gampang sobek, tetap keren dilihat.
+
+✅ Jok aman dari teror si meong
+✅ Bahan kasar anti rusak
+✅ Pasang instan, gak ribet
+✅ Cocok buat motor harian anak kos & anak kerja
+✅ Rating 4,9 ⭐
+
+Biar motormu gak jadi korban selanjutnya,
+amankan sekarang sebelum jokmu habis duluan 😈`
+      },
+      {
+        id: "4",
+        product: "Sarung Jok Model Lipan Dikie Jok",
+        tags: "cover jok model lipan dikie jok caferacer jok tebal karet",
+        text: `👉Komen "Lipan" nanti Link Produknya aku kirim ke DM atau Cek Link di Bio no.03 bisa juga dengan klik keranjang yang ada di video ya kak 😍
+
+Cover Jok Model Lipan
+
+Jok motor kusam & gampang rusak? Waktunya naik level 💥
+
+Cover Jok Model Lipan – New Caferacer
+Terbuat dari bahan tebal 1.20 mm, lebih kuat, lebih nyaman dipakai, dan tampilan motor langsung lebih mewah.
+
+✅ Bahan tebal & mantap
+✅ Model lipan – tampil beda & lebih keren
+✅ Pemasangan pakai karet (simpel, bisa bongkar pasang sendiri)
+✅ Melindungi jok bawaan dari aus, debu & lecet
+
+Buat yang sayang motor & gak mau jok cepat rusak,
+ini solusi simpel tapi impact-nya gede 🔥
+
+Stok ready banyak bossku…
+Langsung amankan sebelum kehabisan 😎
+
+🤩 Happy shopping bosku 🤩`
+      },
+      {
+        id: "7",
+        product: "HAFEZ Helmet Foam Cleaner – Snow Mint 400ml",
+        tags: "hafez helmet foam cleaner snow mint pembersih helm kemenkes",
+        text: `👉Komen "07" nanti Link Produknya aku kirim ke DM atau Cek Link di Bio no.07 bisa juga dengan klik keranjang yang ada di video ya kak 😍
+
+HAFEZ Helmet Foam Cleaner – Snow Mint | 400ml
+
+Helm bersih, bebas bau, tanpa ribet bilas air 💨
+
+HAFEZ Helmet Foam Cleaner dengan aroma Snow Mint diformulasikan khusus untuk membersihkan noda, debu, dan kotoran di helm, termasuk bagian dalamnya.
+
+✅ Efektif hilangkan bau apek
+✅ Membasmi kuman & bakteri di interior helm
+✅ Tanpa perlu dibilas air
+✅ Cukup semprot – diamkan – lap hingga bersih
+✅ Isi 400ml lebih awet dipakai
+
+Pakai rutin biar helm tetap bersih, wangi, dan nyaman dipakai tiap hari.
+Helm bersih = riding makin pede 😎
+
+Terdaftar KEMENKES RI: PKD 20310320724
+
+#HafezHelmetCleaner
+#PembersihHelm
+#HelmBersih
+#HelmWangi`
+      },
+      {
+        id: "9",
+        product: "Wajan Panggang Anti Lengket 34cm",
+        tags: "wajan panggang anti lengket batu medis baja karbon 34cm bbq",
+        text: `👉Komen "09" nanti Link Produknya aku kirim ke DM atau Cek Link di Bio no.09 bisa juga dengan klik keranjang yang ada di video ya kak 😍
+
+Masak enak gak harus ribet 🍳🔥
+
+Wajan panggang anti lengket ini punya ketebalan 2mm dengan bahan batu medis & baja karbon, kuat, tahan lama, dan panasnya merata sampai ke seluruh permukaan.
+
+✅ Lapisan batu medis food grade – anti lengket & mudah dibersihkan
+✅ Panas merata, masakan matang sempurna
+✅ Cocok untuk steak, BBQ, omelet, sate, sampai nasi goreng
+✅ Diameter 34 cm – muat untuk 4–6 orang
+✅ Bisa dipakai di kompor gas, induksi & listrik
+✅ Pegangan ganda nyaman & tidak panas
+
+Masak lebih sehat, lebih hemat minyak, lebih praktis.
+Cocok buat dapur rumah sampai acara bakaran bareng keluarga.
+
+Sekali pakai, susah balik ke wajan biasa 🔥
+
+#WajanAntiLengket
+#WajanPanggang
+#PeralatanDapur
+#MasakDirumah
+#DapurModern
+#BBQTime
+#KitchenEssentials
+#WajanPremium
+#MasakLebihMudah`
+      },
+      {
+        id: "10",
+        product: "Paket Small – Shampoo Wax & Perawatan Body",
+        tags: "paket cuci motor mobil shampoo wax bubblegum sealant guard auto black matte black engine degreaser",
+        text: `👉Komen "10" nanti Link Produknya aku kirim ke DM atau Cek Link di Bio no.10 bisa juga dengan klik keranjang yang ada di video ya kak 😍
+
+Cuci motor / mobil di rumah tapi hasil kayak salon? Bisa banget 💦
+
+PAKET SMALL – Paket Cuci Lengkap ini sudah include semua kebutuhan perawatan kendaraan dari A sampai Z:
+
+✅ Shampoo Wax BubbleGum (150ml) – PH Balance, aman untuk cat, busa melimpah & bikin kinclong
+✅ Sealant Guard (100ml) – Pengkilap body halus / glossy
+✅ Auto Black (100ml) – Penghitam body kasar & semir ban
+✅ Matte Black Body Doff (100ml) – Penegas warna body doff/matte
+✅ Engine Degreaser (150ml) – Pembersih kerak mesin bandel
+
+🎁 Bonus lengkap:
+Spons lembut, lap microfiber, pad aplikator, kuas & sticker!
+
+Cocok buat kamu yang mau:
+• Hemat biaya salon motor/mobil
+• Kendaraan selalu kinclong & terawat
+• Bisa cuci kapan aja di rumah
+
+Semua sudah satu paket, tinggal pakai, gak perlu ribet cari satu-satu.
+
+#PaketCuciMotor
+#CarWashHome
+#MotorKinclong
+#SalonMotorDirumah
+#ShampooWax
+#DetailingMotor
+#AutoDetailing
+#BikersLife
+#PerawatanMotor`
+      },
+      {
+        id: "11",
+        product: "XTREME BLACK – Penghitam Body Doff",
+        tags: "xtreme black body plastik hitam doff semir body kasar waterbased",
+        text: `👉Komen "11" nanti Link Produknya aku kirim ke DM atau Cek Link di Bio no.11 bisa juga dengan klik keranjang yang ada di video ya kak 😍
+
+Body plastik hitam doff motor/mobil udah pudar, kusam, keliatan tua sebelum waktunya? 😅
+Saatnya balikkin ke look ORIGINAL PABRIK pakai XTREME BLACK!
+
+Produk ini pakai pigment hitam berstandar tinggi yang diemulsikan dengan WPC (Waterbased Polyester Compound), jadi bukan sekadar semir biasa.
+
+🔥 Kelebihan XTREME BLACK:
+
+• Kering cuma dalam 1 MENIT – gak lengket, gak nunggu lama
+• Hasil PERMANENT, bukan kilap sebentar terus hilang
+• Tahan cuaca, air, panas & gak luntur meski dicuci pakai sabun
+• 100% waterbased, aman & tahan lama
+• Hasil hitam pekat doff–semidoff, ngikutin tekstur asli body kasar kendaraan kamu
+• Ketahanan sampai 2 TAHUN (kalau dirawat bener)
+
+Tersedia beberapa pilihan paket:
+• 60ml FULL SET (bonus busa aplikator + sarung tangan)
+• 100ml botol only
+• 100ml + busa aplikator
+• 100ml FULL SET (lengkap busa aplikator + sarung tangan)
+
+Body kusam jadi kelihatan baru lagi tanpa repaint.
+Pesanan sebelum jam 4 sore, dikirim di hari yang sama.
+
+Siap kirim ke seluruh Indonesia 🚚
+
+🤝 Ada yang mau ditanyain? Drop di chat, kami jawab secepatnya.
+Happy shopping! ✨
+
+#XtremeBlack
+#BodyDoffHitam
+#PenghitamBodyMotor
+#DetailingMotor
+#DetailingMobil
+#MotorKinclong
+#MobilKinclong
+#BodyKasarJadiBaru`
+      },
+      {
+        id: "12",
+        product: "Shampoo & Wax REBORN Bubble Gum",
+        tags: "reborn autodetailing shampoo wax bubble gum cuci motor mobil",
+        text: `👉Komen "12" nanti Link Produknya aku kirim ke DM atau Cek Link di Bio no.12 bisa juga dengan klik keranjang yang ada di video ya kak 😍
+
+Cuci motor/mobil di rumah tapi hasil tetap kinclong? Bisa banget ✨
+
+Pakai Shampoo & Wax REBORN Bubble Gum Autodetailing dengan formula inovatif yang bantu bersihin kotoran sekaligus kasih efek kilap & proteksi.
+
+Cara pakai gampang:
+1️⃣ Basahi kendaraan dulu, hilangkan debu & kotoran
+2️⃣ Campurkan 50ml sabun + 3–5 liter air, aduk sampai berbusa
+3️⃣ Usapkan spons lembut ke seluruh body (jangan digosok kasar)
+4️⃣ Bilas pakai air bersih sampai gak ada sisa sabun
+
+💡 Tips biar hasil maksimal:
+• Jangan cuci di bawah matahari langsung
+• Pakai rutin biar cat tetap bersinar & terlindungi
+
+Lebih bersih, lebih kinclong, lebih terawat 📈
+Stock selalu ready, langsung order sebelum kehabisan!
+
+#RebornAutodetailing
+#ShampooWax
+#CuciMotorDirumah
+#CuciMobilSendiri
+#MotorKinclong
+#MobilKinclong
+#PerawatanKendaraan`
+      },
+      {
+        id: "13",
+        product: "Handuk Microfiber Raja Karpet",
+        tags: "handuk microfiber raja karpet handuk mandi dewasa cepat kering",
+        text: `👉Komen "13" nanti Link Produknya aku kirim ke DM atau Cek Link di Bio no.13 bisa juga dengan klik keranjang yang ada di video ya kak 😍
+
+Handuk mandi biasa beda sama Handuk Microfiber Raja Karpet 🛁✨
+
+Terbuat dari bahan microfiber berkualitas, handuk ini super lembut, cepat menyerap air, dan cepat kering. Cocok buat mandi harian, olahraga, sampai traveling.
+
+✅ Ukuran dewasa: 70 x 140 cm
+✅ Bulu kationik lembut & ramah di kulit
+✅ Daya serap tinggi, gak bikin lengket
+✅ Cepat kering & tidak mudah luntur
+✅ Mengandung anti bakteri alami (aman untuk semua jenis kulit)
+✅ Desain elegan dengan warna pastel yang cantik
+
+Tersedia 3 varian ukuran:
+• H71 – 70 x 140 cm
+• H61 – 90 x 150 cm
+• H3 – 70 x 140 cm
+
+Motif & warna random tapi semua sesuai foto produk,
+bukan motif aneh-aneh 😊
+
+Kalau handuk lama udah kasar, susah kering & bau,
+saatnya upgrade ke yang lebih nyaman.
+
+#HidupLebihNyaman bareng produk dari Raja Karpet Indonesia Official 🏡
+
+#HandukMicrofiber
+#HandukMandiDewasa
+#RajaKarpetIndonesia
+#PerlengkapanMandi
+#HandukCepatKering
+#HandukLembut
+#HomeEssentials`
+      },
+      {
+        id: "14",
+        product: "Kantong Urine Portable 700ml",
+        tags: "kantong urine urin portable 700ml travel camping darurat",
+        text: `👉Komen "14" nanti Link Produknya aku kirim ke DM atau Cek Link di Bio no.14 bisa juga dengan klik keranjang yang ada di video ya kak 😍
+
+Lagi di jalan jauh, macet panjang, atau camping tapi susah cari toilet?
+Ini solusi simpel tapi penting banget 🚗🏕️
+
+Kantong Urin Portable 700ml
+Dirancang praktis buat kondisi darurat saat toilet tidak tersedia.
+
+✅ Bisa dilipat – kecil, ringan, gampang dibawa
+✅ Gel anti bau & anti bocor – cairan langsung jadi gel
+✅ Inlet unisex – nyaman dipakai pria & wanita
+✅ Kapasitas besar 700ml – cukup untuk kebutuhan darurat
+✅ Kedap udara & higienis – sekali pakai, aman dan bersih
+✅ Cocok untuk mobil, perjalanan, pesawat, camping, hingga keperluan medis
+
+Spesifikasi:
+• Bahan: PR / IXPE
+• Ukuran: 31 x 13,5 cm
+• Isi: 1 pcs kantong urin
+
+Barang kecil, tapi bisa jadi penyelamat di situasi mendesak 💡
+Wajib ada di mobil & tas traveling kamu.
+
+#UrineBagPortable
+#TravelEssentials
+#AlatTravel
+#CampingGear
+#RoadTripLife
+#BarangWajibDiMobil
+#PerjalananNyaman`
+      },
+      {
+        id: "15",
+        product: "Helm MLA J5 & Varian Lain",
+        tags: "helm mla j5 morgan cosmo octagon hijab sni 1811-2007",
+        text: `👉Komen "15" nanti Link Produknya aku kirim ke DM atau Cek Link di Bio no.15 bisa juga dengan klik keranjang yang ada di video ya kak 😍
+
+Jangan salah pilih helm, beda tipe beda kebutuhan 🪖
+
+Tersedia 4 tipe helm:
+• MLA J5 – Kaca bening
+• MJM Morgan – Kaca hitam
+• MLA Octagon Hijab – Lebih nyaman untuk hijab
+• Cosmo – Kaca hitam
+
+Semua menggunakan bahan ABS (Acrylonitrile Butadiene Styrene), material termoplastik canggih yang terkenal kuat dan tahan benturan.
+
+✅ Desain aerodinamis hasil uji terowongan angin
+✅ Nyaman dipakai, aliran udara optimal
+✅ Struktur dalam dirancang untuk kenyamanan maksimal
+✅ Ringan tapi kokoh
+✅ Sudah berstandar SNI 1811-2007
+
+Dirancang dengan kolaborasi teknologi teknik modern & perhitungan aeronautika,
+hasilnya bukan cuma helm keren, tapi juga aman & nyaman buat dipakai harian.
+
+Sebelum beli, pastikan pilih tipe yang sesuai ya.
+Safety dulu, gaya menyusul 😎
+
+#HelmSNI
+#HelmMLAJ5
+#HelmHijabFriendly
+#HelmMorgan
+#HelmCosmo
+#RiderIndonesia
+#DailyRide
+#HelmAman
+#HelmKeren`
+      },
+      {
+        id: "16",
+        product: "Set Pisau Dapur 6in1 Bilikot",
+        tags: "pisau bilikot set pisau dapur 6in1 stainless anti lengket",
+        text: `👉Komen "16" nanti Link Produknya aku kirim ke DM atau Cek Link di Bio no.16 bisa juga dengan klik keranjang yang ada di video ya kak 😍
+
+Masak jadi lebih cepat & presisi kalau alatnya mendukung 🔪
+
+Set Pisau Dapur 6in1 ini dibuat dari baja tahan karat berkualitas tinggi, anti karat, anti lengket, dan tetap tajam dalam jangka panjang.
+
+✅ Lapisan anti lengket dengan pola berlian – tidak gampang nempel
+✅ Tajam & mudah diasah ulang
+✅ Cocok untuk buah, sayur, daging & keperluan dapur lainnya
+✅ Desain elegan warna hitam + serat kayu
+✅ Sudah termasuk kemasan rapi & aman
+
+Dalam 1 set kamu dapat:
+• Pisau Daging
+• Pisau Chef
+• Pisau Pengiris
+• Pisau Serbaguna
+• Pisau Pengupas
+• Gunting
+
+Spesifikasi:
+• Bahan: Stainless Steel
+• Ukuran: 36.3 x 3.8 x 21.5 cm
+• Berat: 940g
+
+Cocok buat dapur rumahan, usaha kuliner, atau koleksi kitchen set sendiri.
+Sekali pakai, beda kelas sama pisau dapur biasa 🔥
+
+#PisauDapur
+#SetPisauDapur
+#KitchenTools
+#PeralatanDapur
+#ChefLife
+#MasakLebihMudah
+#HomeCooking
+#StainlessSteelKnife`
+      },
+      {
+        id: "17",
+        product: "Sarung Instan Pria Dewasa – Motif Batik Santri",
+        tags: "sarung instan pria dewasa gus iqdam sarang tawon santri jumbo",
+        text: `👉Komen "17" nanti Link Produknya aku kirim ke DM atau Cek Link di Bio no.17 bisa juga dengan klik keranjang yang ada di video ya kak 😍
+
+Pakai sarung sekarang gak perlu ribet lipat-lipat lagi 🕌
+
+Sarung Instan Pria Dewasa – Motif Batik Santri (Gus Iqdam / Sarang Tawon)
+Tinggal pakai, langsung rapi.
+
+Terbuat dari bahan katun poliester yang adem, ringan, dan nyaman dipakai harian, ngaji, ke masjid, sampai santai di rumah.
+
+✅ Model instan tanpa lipat
+✅ Karet pinggang – praktis & fleksibel
+✅ Model rok, belahan tengah
+✅ Adem & nyaman dipakai di semua musim
+✅ Motif batik santri kekinian
+✅ Tinggi sarung ± 95 cm
+✅ Berat hanya 250 gram
+
+Ukuran tersedia:
+• Standar: BB maksimal ± 85 kg, karet melar sampai ± 115 cm
+• Jumbo: BB maksimal ± 110 kg, karet melar sampai ± 120 cm
+
+Cocok buat kamu yang mau tampil santai tapi tetap rapi.
+Dipakai buat sholat, ngopi, sampai ngaji, tetap nyaman ✨
+
+Perawatan: Disarankan cuci manual agar warna & bahan lebih awet.
+
+#SarungInstanDewasa
+#SarungSantri
+#SarungGusIqdam
+#SarungMuslim
+#SarungMotifKekinian
+#SarungPria
+#SarungMurahBerkualitas
+#GayaSantaiMuslim
+#SarungHarian`
+      },
+      {
+        id: "18",
+        product: "Cover Jok Motif Leopard / Zeus Synthetic Leather",
+        tags: "jok motif leopard cover seat pelindung jok zeus synthetic leather nmax vario scoopy",
+        text: `👉Komen "18" nanti Link Produknya aku kirim ke DM atau Cek Link di Bio no.18 bisa juga dengan klik keranjang yang ada di video ya kak 😍
+
+Jok motor cepat rusak, kusam, atau retak karena panas & hujan?
+Saatnya upgrade pakai Cover Jok Seat Pelindung Jok Motor (Instan Tanpa Staples) 🔥
+
+Terbuat dari Zeus Synthetic Leather Premium – bahan kualitas jok mobil, tebal 1.20 mm, lentur, tidak licin, dan tahan panas matahari.
+
+✅ Pemasangan pakai tali & karet – bisa pasang/bongkar sendiri di rumah
+✅ Tanpa staples – lebih rapi & aman
+✅ Emboss full + jahit double stitch super kuat
+✅ Press empuk dengan busa tambahan
+✅ Presisi sesuai bentuk motor
+✅ Anti air & tidak mudah crack
+
+Cocok untuk berbagai tipe motor:
+PCX, NMAX, Vario, Scoopy, Aerox, Supra, Mio Series, Xeon, Fino, Fazzio, Xride, Genio, Lexi, ADV, dll.
+
+Gak ada tipe motor kamu?
+👉 Pilih Request Motor Lain dan chat admin.
+
+‼️ Garansi 100% uang kembali kalau barang cacat / tidak sesuai
+Tinggal chat admin, pasti dibantu.
+
+Jangan lupa pakai voucher diskon & gratis ongkir ya 💥
+Stok ready, langsung gas sebelum kehabisan!
+
+#CoverJokMotor
+#SarungJokMotor
+#JokMotorAntiAir
+#AksesorisMotor
+#Nmax
+#Vario
+#Scoopy
+#MotorDaily
+#ModifMotor`
+      },
+      {
+        id: "19",
+        product: "Tool Box Kunci Sok Set 85 PCS",
+        tags: "kunci sok set 85 pcs toolbox alat bengkel mekanik",
+        text: `👉Komen "19" nanti Link Produknya aku kirim ke DM atau Cek Link di Bio no.19 bisa juga dengan klik keranjang yang ada di video ya kak 😍
+
+Kerja otomotif gak bisa setengah-setengah, alatnya juga harus total 💪
+
+Tool Box Kunci Sok Set 85 PCS – 85 IN 1 SET
+Isinya super lengkap buat kebutuhan bengkel, rumahan, sampai mekanik lapangan.
+
+✅ REALPICT sesuai gambar
+✅ 1 box isi kunci sok lengkap ukuran 10–32mm
+✅ 1 box tang, tang runcing, handle + isi cutter
+✅ 1 box tang burung & tang buaya + kunci L set lengkap
+✅ 1 box obeng minus & plus berbagai ukuran
+✅ 1 box set kunci sok detail lengkap
+
+📦 Ukuran box: 47 x 21 x 20 cm
+⚖️ Berat: ± 11 kg
+🛠️ Desain kotak kuat, praktis, gampang dibawa
+🛡️ Garansi 3 bulan dari produsen
+
+Satu set, semua beres.
+Gak perlu beli alat terpisah lagi, isi udah lengkap tinggal kerja 🔥
+
+Cocok buat:
+Bengkel motor/mobil, mekanik lapangan, DIY otomotif, sampai koleksi alat pribadi.
+Stok ready, langsung gas sebelum kehabisan!
+
+#ToolBox85pcs
+#KunciSokSet
+#AlatBengkel
+#OtomotifTool
+#MekanikIndonesia
+#BengkelMotor
+#DIYOtomotif
+#PeralatanBengkel
+#MotorDaily
+#ModifMotor`
+      },
+      {
+        id: "20A",
+        product: "Mini Side Stepper V-Shape",
+        tags: "mini stepper v-shape alat fitness rumah home workout",
+        text: `👉Komen "stepper" nanti Link Produknya aku kirim ke DM atau Cek Link di Bio bisa juga dengan klik keranjang yang ada di video ya kak 😍
+
+Olahraga di rumah tapi pengen hasil maksimal?
+Ini solusinya: Mini Side Stepper V-Shape 🏃‍♂️🔥
+
+Dirancang dengan bentuk V-Shape supaya gerakan tubuh lebih stabil & seimbang saat latihan.
+
+✅ Pijakan kaki lebar 13 cm x 27 cm, anti selip & gak miring
+✅ Bantalan hidrolik ganda – langkah lebih halus & efektif bakar kalori
+✅ Dilengkapi layar LED: hitung waktu, kalori terbakar, jumlah step & durasi latihan
+✅ Ada tali penegang & tahanan kaki biar makin stabil saat dipakai
+✅ Material: rangka besi + PVC, kuat & kokoh
+
+Ukuran:
+📏 50 cm x 32 cm
+🎨 Warna: Hijau, Merah, Merah Muda
+
+Cocok buat yang mau:
+• Bakar kalori di rumah
+• Latihan kaki & paha
+• Kardio simpel tanpa ribet keluar rumah
+
+Kecil, praktis, tapi hasilnya serius 💦
+Stok ready, langsung gas sebelum kehabisan!
+
+#MiniStepper
+#SideStepper
+#HomeWorkout
+#WorkoutDiRumah
+#AlatFitnessRumahan
+#BakarKalori
+#FitnessIndoor
+#DietSehat`
+      },
+      {
+        id: "20B",
+        product: "BE Clean / HIFOUR CLEAN Paket Cuci Motor",
+        tags: "be clean hifour clean paket cuci motor mobil auto care",
+        text: `👉Komen "20" nanti Link Produknya aku kirim ke DM atau Cek Link di Bio No. 20 bisa juga dengan klik keranjang yang ada di video ya kak 😍
+
+Motor / mobil mulai kusam, warna pudar, gampang kotor?
+Saatnya rawat pakai HIFOUR CLEAN Auto Care 🔥
+
+Satu paket lengkap untuk bikin kendaraan kamu balik kinclong seperti baru.
+
+✅ Mengembalikan warna seperti baru
+✅ Efek daun talas (hydrophobic) – air & debu susah nempel
+✅ Tahan 1–3 bulan
+✅ 100% aman untuk semua jenis kendaraan
+✅ 100% original + garansi 24 bulan
+
+Isi Paket Lengkap:
+• HIFOURCLEAN Shampoo Wax Bubble Gum (PH Balance, super busa, irit pemakaian)
+• Auto Shine – Pengkilap body halus / glossy
+• Auto Black – Pengkilap body kasar / semir ban
+• Engine Degreaser – Pembersih kerak mesin bandel
+
+Bonus: Spons lembut, lap microfiber, pad aplikator & kuas
+
+Keunggulan utama:
+✔ Meremajakan body kendaraan
+✔ Melindungi dari debu, kotoran & air
+✔ Warna jadi lebih hidup & pekat
+✔ Cocok untuk motor & mobil
+
+Bisa dipakai sendiri di rumah, hasil rasa salon detailing 💦
+Yang penting pastikan order cuma di akun resmi HIFOUR CLEAN Auto Care ya.
+
+✨ Biar kendaraan gak keliatan tua sebelum waktunya.
+
+Happy shopping 🚀
+
+#DetailingMotor
+#DetailingMobil
+#AutoCareIndonesia
+#MotorKinclong
+#MobilKinclong
+#PerawatanKendaraan
+#SalonMotorDirumah`
+      },
+      {
+        id: "21",
+        product: "ORIGINAL PRIME Active Foam Effect 1L",
+        tags: "active foam cleanser shampoo touchless mobil motor tanpa kucek",
+        text: `👉Komen "21" nanti Link Produknya aku kirim ke DM atau Cek Link di Bio No. 21 bisa juga dengan klik keranjang yang ada di video ya kak 😍
+
+Cuci mobil / motor sekarang gak perlu kucek, tapi tetap kinclong ✨
+
+Pakai ORIGINAL PRIME Active Foam Effect 1 Liter – shampoo TOUCHLESS tanpa sentuh yang efektif angkat kotoran tanpa merusak cat.
+
+✅ Menghilangkan debu, lumpur, minyak & jejak serangga
+✅ Busa kaya & tebal – mudah dibilas
+✅ Aman untuk cat, tidak mengikis warna
+✅ Mengandung anti korosi – melindungi permukaan kendaraan
+✅ Efek bersih & mengkilap tanpa digosok
+✅ Volume 1 liter – awet untuk banyak kali cuci
+✅ Garansi 6 bulan, kualitas terjamin
+
+Cukup semprot, tunggu 1–2 menit, lalu bilas pakai air tekanan tinggi.
+Praktis, aman, dan hasilnya kayak cuci di salon profesional.
+
+📦 Untuk pengiriman luar pulau disarankan pakai HEMAT / KARGO biar aman & minim risiko retur.
+
+Buat yang peduli kebersihan kendaraan tapi gak mau ribet, ini jawabannya 🔥
+
+#ActiveFoam
+#ShampooTouchless
+#CuciMobilTanpaSentuh
+#CuciMotorTanpaKucek
+#DetailingMobil
+#AutoCareIndonesia
+#PrimeFoam
+#SalonMobilDirumah`
+      },
+      {
+        id: "22",
+        product: "Kain Microfiber BOWIN 800GSM",
+        tags: "kain bowin microfiber 800gsm lap mobil premium detailing",
+        text: `👉Komen "22" nanti Link Produknya aku kirim ke DM atau Cek Link di Bio No. 22 bisa juga dengan klik keranjang yang ada di video ya kak 😍
+
+Sering kesel pas mobil udah dipoles tapi masih ada bekas sidik jari & baret halus?
+Biasanya bukan karena semirnya, tapi karena lap-nya salah.
+
+Microfiber 800GSM extra tebal ini beda kelas.
+Lebih mudah angkat sisa poles, debu, sampai jejak jari tanpa bikin goresan.
+Lembut di cat, aman untuk interior & eksterior, dan ada pilihan ukuran sesuai kebutuhan.
+
+Buat yang sayang mobilnya, ini bukan lap biasa, ini alat wajib detailing 🚗✨
+
+#microfiber800gsm #lapmobilpremium #detailingmobil #carcareindonesia #aksesorismobil #perawatankendaraan #otomotifindonesia #affiliateindonesia`
+      },
+      {
+        id: "23",
+        product: "FitEccu – Cairan Perawatan Aki",
+        tags: "fiteccu perawatan aki desulfator aki motor aki mobil",
+        text: `👉Komen "23" nanti Link Produknya aku kirim ke DM atau Cek Link di Bio No. 23 bisa juga dengan klik keranjang yang ada di video ya kak 😍
+
+Motor sering susah nyala pagi hari?
+Starter lama, klakson lemah, lampu redup?
+
+Bukan selalu karena aki rusak… bisa jadi karena aki kotor & berkerak di dalamnya.
+
+FitEccu ini cairan perawatan aki yang bantu melarutkan kerak (desulfator), bikin aki yang lemah jadi lebih sehat lagi.
+Bisa dipakai buat aki motor & mobil, basah maupun kering.
+
+Gak perlu buru-buru ganti aki baru,
+cukup rawat rutin — aki bisa lebih awet, performa naik lagi 🔋
+
+Hemat, praktis, dan bisa dikerjain sendiri di rumah.
+
+#FitEccu #perawatanaki #akinormal #motorharian #mobilharian #aksesoriskendaraan #bengkelrumahan #toolsmotor #affiliateindonesia`
+      },
+      {
+        id: "24",
+        product: "PREPARE Foot Deo Spray",
+        tags: "foot spray foot deo spray bau kaki centella panthenol",
+        text: `👉Komen "24" nanti Link Produknya aku kirim ke DM atau Cek Link di Bio No. 24 bisa juga dengan klik keranjang yang ada di video ya kak 😍
+
+Sering malu buka sepatu karena bau kaki nyerang duluan?
+Apalagi kalau kaki gampang keringat, gatal, dan kasar.
+
+PREPARE Foot Deo Spray ini bukan cuma ngilangin bau,
+tapi juga rawat kulit kaki karena ada Centella & Panthenol.
+Bantu lembabin, cegah jamur & bakteri, plus wangi tahan seharian.
+
+Tanpa alkohol, aman dipakai tiap hari.
+Semprot di kaki sebelum aktivitas, atau di sepatu biar tetap fresh 👣✨
+
+#footdeospray #baukaki #perawatankaki #antijamur #antibakteri #kakiharum #sepatuwangi #affiliateindonesia`
+      },
+      {
+        id: "25",
+        product: "Jas Hujan Ponco + Celana Modern Ibex",
+        tags: "jas hujan ponco celana ibex raincoat motor",
+        text: `👉Komen "25" nanti Link Produknya aku kirim ke DM atau Cek Link di Bio No. 25 bisa juga dengan klik keranjang yang ada di video ya kak 😍
+
+Udah pakai jas hujan tapi tetap basah?
+Air masuk dari samping, angin tembus, pulang malah masuk angin.
+
+Jas hujan ponco + celana Modern Ibex ini pakainya full proteksi,
+bahan PVC tebal, tahan air, dan masih nyaman dipakai riding.
+
+Bonusnya?
+Beli 1 dapat 2.
+Bisa buat sendiri + boncengan, atau satu cadangan di motor.
+
+Hujan datang tiba-tiba, lo tetap aman di jalan 🌧️🛵
+
+#jashujan #jashujanmotor #jasraincoat #anakmotor #motordaily #perlindunganhujan #affiliateindonesia #riderindonesia #jasponco`
+      },
+      {
+        id: "26",
+        product: "REAIM High Pressure Jet Cleaner",
+        tags: "jet cleaner reaim high pressure cuci mobil motor ac outdoor",
+        text: `👉Komen "26" nanti Link Produknya aku kirim ke DM atau Cek Link di Bio No. 26 bisa juga dengan klik keranjang yang ada di video ya kak 😍
+
+Pernah capek nyuci mobil tapi kotoran masih nempel?
+Lumut di lantai gak ilang-ilang, AC luar berdebu tebal?
+
+Biasanya bukan karena air kurang deras,
+tapi karena mesinnya kurang tenaga.
+
+REAIM High Pressure Cleaner ini pakai motor induksi (lebih senyap) dan tekanan bisa diatur sampai 450 Bar.
+Mau cuci mobil, tembok berlumut, motor, sampai AC outdoor… semua bisa.
+
+Daya cuma 600W tapi semburannya bukan kaleng-kaleng.
+Lebih bersih, lebih cepat, lebih hemat tenaga.
+
+Sekali pakai, tangan gak pegal, kerjaan beres lebih cepat 💦🔧
+
+#jetcleaner #highpressurecleaner #reaim #alatcucimobil #cucimotorrumah #bersihmaksimal #toolsrumahan #affiliateindonesia #otomotiflife`
+      },
+      {
+        id: "27",
+        product: "Kabel Extension / Stop Kontak 14 Lubang",
+        tags: "kabel extention extension 30 meter stop kontak 14 lubang",
+        text: `👉Komen "27" nanti Link Produknya aku kirim ke DM atau Cek Link di Bio No. 27 bisa juga dengan klik keranjang yang ada di video ya kak 😍
+
+Stop kontak selalu kurang?
+Colokan rebutan sama charger, kipas, laptop, sampai mesin?
+
+Daripada sambung-sambung pakai T colokan yang rawan panas,
+mending pakai kabel ekstension ini.
+
+Kabelnya fleksibel & kuat, soket 14 lubang, tahan panas, aman buat rumah & kantor.
+Panjang sampai 30 meter, jadi gak ribet pindah-pindahin barang lagi.
+
+Sekali colok, semua beres ⚡
+Kerjaan lancar, gak drama listrik.
+
+#extentionkabel #stopkontak #kabelroll #perlengkapanrumah #alatkantor #produkindonesia #listrikaman #affiliateindonesia`
+      },
+      {
+        id: "28",
+        product: "Sarung Tangan Palm Fit",
+        tags: "sarung tangan palm fit bengkel proyek riding",
+        text: `👉Komen "28" nanti Link Produknya aku kirim ke DM atau Cek Link di Bio No. 28 bisa juga dengan klik keranjang yang ada di video ya kak 😍
+
+Sering kerja tapi tangan lecet?
+Mau pegang alat, tangan malah licin & gak maksimal?
+
+Sarung tangan Palm Fit ini pakai bahan nylon + lapisan karet PU,
+jadi lebih kesat, anti slip, dan gak ninggalin bekas sidik jari di benda yang dipegang.
+
+Nyaman dipakai, elastis, dan bantu lindungi tangan saat kerja bengkel, proyek, atau riding motor.
+
+Pegangan lebih mantap, kerja lebih aman ✋🔧
+
+#sarungtangan #palmfit #sarungtanganbengkel #sarungtanganmotor #safetywork #perlengkapanproyek #toolsmekanik #affiliateindonesia`
+      },
+      {
+        id: "29",
+        product: "NEUMATIC FOAM SPRAYER N2",
+        tags: "foam sprayer neumatik neumantic snow wash n2",
+        text: `👉Komen "29" nanti Link Produknya aku kirim ke DM atau Cek Link di Bio No. 29 bisa juga dengan klik keranjang yang ada di video ya kak 😍
+
+NEUMATIC FOAM SPRAYER N2 bikin busa lebih kental, tebal, dan merata.
+Dilengkapi safety valve biar tabung aman dari tekanan berlebih,
+plus 3 nozzle beda fungsi: snow, cleaning, dan spray.
+
+Manual, gak ribet, tinggal pompa → semprot → nikmatin sensasi snow wash di rumah 🚿🚗
+
+Cuci motor & mobil jadi lebih puas, lebih bersih, lebih estetik.
+
+#foamsprayer #snowwash #carwashindonesia #detailingmobil #cucimotor #alatcucimobil #bengkelrumahan #affiliateindonesia #nanotechpro`
+      },
+      {
+        id: "30",
+        product: "Texania Gunting Dapur Multifungsi",
+        tags: "pisau gunting texania gunting dapur multifungsi",
+        text: `👉Komen "30" nanti Link Produknya aku kirim ke DM atau Cek Link di Bio No. 30 bisa juga dengan klik keranjang yang ada di video ya kak 😍
+
+Sering kesel motong ayam tapi tulangnya susah, jadi belepotan?
+Pakai gunting dapur biasa malah tumpul & bikin tangan pegal.
+
+Texania Gunting Dapur Multifungsi ini bilahnya pakai stainless 3CR14, tebal, tajam, dan anti karat.
+Bisa dipisah jadi dua buat lebih fleksibel & gampang dibersihin.
+
+Motong daging, tulang ayam, bahan keras dapur?
+Sekali tekan, langsung beres.
+
+Bukan cuma gunting, tapi senjata dapur buat emak-emak & anak kos 🍗🔪
+
+#guntingdapur
+#pisaugunting
+#alatdapur
+#dapurminimalis
+#peralatandapur`
+      },
+      {
+        id: "31",
+        product: "Naresh Restorer Back To Glow",
+        tags: "naresh back to glow restorer pengkilap body motor wet look",
+        text: `👉Komen "31" nanti Link Produknya aku kirim ke DM atau Cek Link di Bio No. 31 bisa juga dengan klik keranjang yang ada di video ya kak 😍
+
+Motor makin lama kok kelihatan kusam?
+Padahal dulu baru beli kinclong banget.
+
+Bukan motornya yang tua… tapi catnya kusam karena oksidasi & kotoran.
+
+Naresh Restorer bantu balikin kilap motor jadi wet look lagi,
+nutupin baret halus, ngilangin jamur cat, plus efek daun talas bikin air gak nempel.
+
+Semprot, tunggu sebentar, lap…
+Motor langsung keliatan kayak abis coating mahal ✨🏍️
+
+#nareshrestorer
+#pengkilapmotor
+#bodymotorhitam
+#perawatanmotor
+#wetlookmoto`
+      },
+      {
+        id: "32",
+        product: "Pisau Ikan Model Busur",
+        tags: "pisau ikan dapur busur stainless gagang kayu",
+        text: `👉Komen "32" nanti Link Produknya aku kirim ke DM atau Cek Link di Bio No. 32 bisa juga dengan klik keranjang yang ada di video ya kak 😍
+
+Ngolah ikan ribet karena bagian belakangnya keras & licin?
+Pakai pisau biasa malah muter-muter dan bikin capek.
+
+Pisau ini bilahnya model busur, jadi lebih gampang masuk ke bagian belakang ikan.
+Mata pisau stainless tajam & kuat, gagang kayu solid dan nyaman digenggam.
+
+Buat potong ikan, daging, sampai sayur,
+lebih rapi, lebih cepat, lebih mantap di tangan 🔪🐟
+
+Masak jadi lebih satset, dapur makin niat.
+
+#pisaudapur
+#pisauikan
+#alatmasak
+#peralatandapur
+#kitchenlovers`
+      }
+    ];
+
+    // ================== LOGIKA RENDER & COPY ==================
+    const gridEl = document.getElementById("grid");
+    const statusEl = document.getElementById("status");
+    const searchInput = document.getElementById("searchInput");
+
+    function renderCaptions(filter = "") {
+      const q = filter.toLowerCase().trim();
+      gridEl.innerHTML = "";
+
+      const filtered = CAPTIONS.filter(item => {
+        if (!q) return true;
+        const haystack = (item.id + " " + item.product + " " + item.tags + " " + item.text).toLowerCase();
+        return haystack.includes(q);
+      });
+
+      if (filtered.length === 0) {
+        gridEl.innerHTML = "<div style='font-size:13px;color:#9ca3af;'>Tidak ada caption yang cocok dengan kata kunci tersebut.</div>";
+        statusEl.textContent = "";
+        return;
+      }
+
+      filtered.forEach(item => {
+        const card = document.createElement("div");
+        card.className = "card";
+
+        card.innerHTML = `
+          <div class="pill">Klik untuk copy</div>
+          <div class="product-id">No. ${item.id}</div>
+          <div class="product-name">${item.product}</div>
+          <div class="tags">${item.tags}</div>
+          <div class="caption-text">${item.text.replace(/\\n/g, "<br>")}</div>
+        `;
+
+        card.addEventListener("click", () => handleCopy(item.text, card, item));
+
+        gridEl.appendChild(card);
+      });
+
+      statusEl.textContent = `${filtered.length} caption ditemukan.`;
+    }
+
+    function handleCopy(text, cardEl, item) {
+      const cleanText = text.trim();
+      navigator.clipboard.writeText(cleanText).then(() => {
+        cardEl.classList.add("copied");
+        statusEl.innerHTML = `Caption <span class="highlight">No. ${item.id} – ${item.product}</span> sudah di-copy. Tinggal paste di IG/TikTok/Shopee.`;
+        setTimeout(() => {
+          cardEl.classList.remove("copied");
+        }, 1200);
+      }).catch(err => {
+        console.error("Gagal copy:", err);
+        alert("Browser tidak mengizinkan copy otomatis. Coba pakai Chrome / Edge terbaru atau jalankan file ini dari hosting (https).");
+      });
+    }
+
+    // Event: search
+    searchInput.addEventListener("input", () => {
+      renderCaptions(searchInput.value);
+    });
+
+    // Render awal
+    renderCaptions();
+  </script>
+</body>
+</html>
